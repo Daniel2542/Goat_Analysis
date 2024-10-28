@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 def goat():
+    st.header("Goat(Ronaldo & Messi) Analysis")
     df = pd.read_csv('dataset/data.csv')
     df.head(10)
 
@@ -198,7 +199,7 @@ def goat():
     df.groupby("Player")["Playing_Position"].value_counts()
     df["Type"].value_counts()
     penalties = df[df["Type"] == "Solo run"]
-    penalties.groupby("Player")["Type"].value_counts()
+    st.dataframe(penalties.groupby("Player")["Type"].value_counts())
 
 goat()
 
